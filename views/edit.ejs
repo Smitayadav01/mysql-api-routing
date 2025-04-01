@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Username</title>
+    <style>
+        h2{
+            height: 60px;
+            width: 100%;
+            background-color: rgb(246, 246, 176);
+        }
+        button{
+            background-color:aquamarine;
+            width:80px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <h2>You are about to edit this user: <%= user.name %> </h2>
+    <h2>You are about to edit this user: <%= user.email %> </h2>
 
+    <form method="post" action="/users/<%= user.id %>?_method=PATCH">
+        <textarea name="name"> <%= user.name %></textarea>
+        <br>
+        <br>
+        <input type="password" name="password">
+        <br>
+        <br>
+        <button>Edit</button>
+    </form>
 </body>
 </html>
